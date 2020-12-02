@@ -71,8 +71,8 @@ Namespace WindowsApplication1
 			_EditPinned.Buttons(0).Kind = ButtonPredefines.Glyph
 			AddHandler _EditPinned.ButtonClick, AddressOf _EditPinned_ButtonClick
 			_EditUnPinned = TryCast(_EditPinned.Clone(), RepositoryItemButtonEdit)
-			_EditPinned.Buttons(0).Image = My.Resources.pin16
-			_EditUnPinned.Buttons(0).Image = My.Resources.unpin16
+			_EditPinned.Buttons(0).Image = My.Resources.Resources.pin16
+			_EditUnPinned.Buttons(0).Image = My.Resources.Resources.unpin16
 		End Sub
 
 		Private Sub _EditPinned_ButtonClick(ByVal sender As Object, ByVal e As ButtonPressedEventArgs)

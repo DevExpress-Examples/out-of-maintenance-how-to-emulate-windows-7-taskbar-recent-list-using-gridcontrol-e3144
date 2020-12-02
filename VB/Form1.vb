@@ -18,9 +18,9 @@ Namespace WindowsApplication1
 
 		Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
 			Dim helper As New GridRecentItemsHelper(gridView1)
-			helper.RecentItems.Add(New GridRecentItem("WindowsFormsApplication1", My.Resources.vs2010, False))
-			helper.RecentItems.Add(New GridRecentItem("WindowsFormsApplication2", My.Resources.vs2010, True))
-			helper.RecentItems.Add(New GridRecentItem("WindowsFormsApplication3", My.Resources.vs2010, False))
+			helper.RecentItems.Add(New GridRecentItem("WindowsFormsApplication1", My.Resources.Resources.vs2010, False))
+			helper.RecentItems.Add(New GridRecentItem("WindowsFormsApplication2", My.Resources.Resources.vs2010, True))
+			helper.RecentItems.Add(New GridRecentItem("WindowsFormsApplication3", My.Resources.Resources.vs2010, False))
 		End Sub
 	End Class
 End Namespace
