@@ -1,5 +1,4 @@
-Imports Microsoft.VisualBasic
-Imports System
+﻿Imports System
 Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports System.Data
@@ -16,11 +15,11 @@ Namespace WindowsApplication1
 			InitializeComponent()
 		End Sub
 
-		Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
+		Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
 			Dim helper As New GridRecentItemsHelper(gridView1)
-			helper.RecentItems.Add(New GridRecentItem("WindowsFormsApplication1", My.Resources.Resources.vs2010, False))
-			helper.RecentItems.Add(New GridRecentItem("WindowsFormsApplication2", My.Resources.Resources.vs2010, True))
-			helper.RecentItems.Add(New GridRecentItem("WindowsFormsApplication3", My.Resources.Resources.vs2010, False))
+			helper.RecentItems.Add(New GridRecentItem("WindowsFormsApplication1", My.Resources.vs2010, False))
+			helper.RecentItems.Add(New GridRecentItem("WindowsFormsApplication2", My.Resources.vs2010, True))
+			helper.RecentItems.Add(New GridRecentItem("WindowsFormsApplication3", My.Resources.vs2010, False))
 		End Sub
 	End Class
 End Namespace

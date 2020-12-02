@@ -1,5 +1,4 @@
-Imports Microsoft.VisualBasic
-Imports System
+﻿Imports System
 Imports System.Collections.Generic
 Imports DevExpress.XtraGrid.Views.Grid
 Imports System.ComponentModel
@@ -49,11 +48,7 @@ Namespace WindowsApplication1
 
 		Private Sub _View_CustomRowCellEdit(ByVal sender As Object, ByVal e As CustomRowCellEditEventArgs)
 			If e.Column.FieldName = "PinnedImage" AndAlso e.RowHandle = _View.FocusedRowHandle Then
-				If True.Equals(e.CellValue) Then
-					e.RepositoryItem = _EditPinned
-				Else
-					e.RepositoryItem = _EditUnPinned
-				End If
+				e.RepositoryItem = If(True.Equals(e.CellValue), _EditPinned, _EditUnPinned)
 			End If
 		End Sub
 		Private Sub InitColumns()
@@ -71,8 +66,8 @@ Namespace WindowsApplication1
 			_EditPinned.Buttons(0).Kind = ButtonPredefines.Glyph
 			AddHandler _EditPinned.ButtonClick, AddressOf _EditPinned_ButtonClick
 			_EditUnPinned = TryCast(_EditPinned.Clone(), RepositoryItemButtonEdit)
-			_EditPinned.Buttons(0).Image = My.Resources.Resources.pin16
-			_EditUnPinned.Buttons(0).Image = My.Resources.Resources.unpin16
+			_EditPinned.Buttons(0).Image = My.Resources.pin16
+			_EditUnPinned.Buttons(0).Image = My.Resources.unpin16
 		End Sub
 
 		Private Sub _EditPinned_ButtonClick(ByVal sender As Object, ByVal e As ButtonPressedEventArgs)
@@ -140,12 +135,7 @@ Namespace WindowsApplication1
 			Dim info As GridGroupRowInfo = CType((CType(e, CustomDrawObjectEventArgs)).Info, GridGroupRowInfo)
 			Dim bounds As Rectangle = info.DataBounds
 			bounds.Offset(2, 0)
-			Dim text As String
-			If CBool(info.EditValue) Then
-				text = "Pinned"
-			Else
-				text = "Recent"
-			End If
+			Dim text As String = If(CBool(info.EditValue), "Pinned", "Recent")
 			e.Appearance.DrawString(e.Cache, text, bounds)
 			Dim size As SizeF = e.Appearance.CalcTextSize(e.Cache, text, bounds.Width)
 			bounds.Offset(size.ToSize().Width, 0)
